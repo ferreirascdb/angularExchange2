@@ -51,3 +51,30 @@ h2{
 .cadastro-button:hover {
   background-color: #1565c0;
 }
+.login-button:hover {
+  background-color: #1565c0;
+}
+
+.criar-button{
+  position: relative;
+  float: right;
+  
+  padding: 12px 20px;
+  background-color: #0d47a1;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.erro{
+  color: #ffffff;
+}
+.entrar {
+  margin-top: 0.5rem;
+  color:#ffffff;
+  float: right;
+}
+.criar-button:hover {
+  background-color: #1565c0;
+}
