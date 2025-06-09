@@ -1,0 +1,15 @@
+
+<div *ngIf="!usuarioLogado">
+  <app-login 
+    *ngIf="!mostrarCadastro"
+    (trocarTela)="trocarTela()"
+    (login)="aologar()"
+  ></app-login>
+  <app-cadastro 
+    *ngIf="mostrarCadastro"
+    (trocarTela)="trocarTela()"
+  ></app-cadastro>
+</div>
+<div *ngIf="usuarioLogado">
+  <app-consulta-cripto></app-consulta-cripto>
+</div>

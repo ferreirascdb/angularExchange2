@@ -1,0 +1,17 @@
+
+<div class="cadastro-container">
+    <h2>Cadastre-se</h2>
+    <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+        <input type="email" id="email" formControlName="email" placeholder="Email" />
+        <div class="alert" *ngIf="formCadastro.get('email')?.invalid && formCadastro.get('email')?.touched">
+         Email inválido
+        </div>
+        <input type="password" id="senha" formControlName="senha" placeholder="Senha" />
+        <div class="alert" *ngIf="formCadastro.get('senha')?.invalid && formCadastro.get('senha')?.touched" >
+            A senha deve ter pelo menos 6 caracteres
+        </div>
+
+        <button class= "cadastro-button" type="submit" [disabled]="formCadastro.invalid">Cadastrar</button>
+        <p>Já tem conta? <button (click)="onJaTenhoConta()">Entrar</button></p>
+    </form>
+</div>

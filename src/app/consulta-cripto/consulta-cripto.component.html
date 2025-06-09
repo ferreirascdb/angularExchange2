@@ -1,0 +1,69 @@
+
+<main class="main">
+  <title>InfraCore | Consulta de CNPJ</title>
+  <h2>CriptoSearch</h2>
+
+  <div class="search-container">
+    <form class="form" [formGroup]="formCripto" (ngSubmit)="onSubmitCriptoForm()">
+      <input 
+        id="moedaOrigem"
+        type="text"
+        placeholder="Moeda de origem (ex: BTC)"
+        class="search-input"
+        formControlName="moedaOrigem"
+      />
+      <input 
+        id="moedaDestino"
+        type="text"
+        placeholder="Moeda de destino (ex: BRL)"
+        class="search-input"
+        formControlName="moedaDestino"
+      />
+      <button class="search-button" type="submit">CONSULTAR</button>
+    </form>
+  </div>
+
+  <section id="cards" class="features" *ngIf="!mostrarResultado">
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <h3>Atualização em Tempo Real</h3>
+      <p>Filtragem por setor, região, porte e mais.</p>
+      
+    </div>
+    <div class="feature-card">
+      <div class="icon">✅</div>
+      <h3>Precisão nas conversões</h3>
+      <p>Base verificada, atualizada e precisa.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">⚡</div>
+      <h3>Resultados Eficientes</h3>
+      <p>Entrega rápida e dados prontos para usar.</p>
+    </div>
+  </section>
+
+  <section id="resultadoConsulta" class="features-consult" *ngIf="mostrarResultado">
+    
+      <div id="resultado" class="result">
+        <p>Nome: <span>{{ criptoResponse.name }}</span></p>
+        <p>Código origem: <span>{{ criptoResponse.code }}</span></p>
+        <p>Código destino: <span>{{ criptoResponse.codein }}</span></p>
+        <p>Compra: <span>{{ criptoResponse.bid }}</span></p>
+        <p>Venda: <span>{{ criptoResponse.ask }}</span></p>
+        <p>Alta: <span>{{ criptoResponse.high }}</span></p>
+        <p>Baixa: <span>{{ criptoResponse.low }}</span></p>
+        <p>Variação: <span>{{ criptoResponse.pctChange }}%</span></p>
+      </div>
+   
+  </section>
+  <section id="resultadoConsulta" class="features-consult" *ngIf="conversoes.length > 0">
+    <div class="result">
+    <h3>Últimas conversões:</h3>
+  <ul>
+    <li   *ngFor="let c of conversoes">
+      {{ c.moedaOrigem }} → {{ c.moedaDestino }} | Compra: {{ c.valorCompra }} | Venda: {{ c.valorVenda }} | {{ c.dataHora }}
+    </li>
+  </ul>
+  </div>
+</section>
+</main>

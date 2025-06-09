@@ -1,0 +1,12 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <form [formGroup]="formLogin"(ngSubmit)="onSubmit()">
+        <input type="email" placeholder="Email" formControlName="email">
+        <input type="password" placeholder="Senha" formControlName="senha">
+        <div *ngIf="mensagemErro" class="erro">
+        {{ mensagemErro }}
+        </div>
+        <button class="login-button" type="submit">Entrar</button>
+        <p>Não tem conta? <button (click)="onCriarConta()" class="criar-button">Criar conta</button></p>
+    </form>
+</div>
